@@ -4,10 +4,13 @@ import XCTest
 class ImageSearchViewModelTests: XCTestCase {
     var sut: ImageSearchViewModel!
     var requestService: DummyRequestService!
+    var persistenceManager: MockPersistenceManager!
 
     override func setUpWithError() throws {
         requestService = DummyRequestService()
-        sut = ImageSearchViewModel(service: requestService)
+        persistenceManager = MockPersistenceManager()
+        sut = ImageSearchViewModel(service: requestService,
+                                   persistenceManager: persistenceManager)
     }
     
     func testFetchSearchResultsPassesOnRequest() {
@@ -68,5 +71,15 @@ class DummyImageSearchDelegate: ImageSearchViewModelDelegate {
     func viewModel(_ viewModel: ImageSearchViewModel, didFinishSearchWithTerm searchTerm: String) {
         viewModelDidFinishSearching = true
         lastSearchTerm = searchTerm
+    }
+}
+
+class MockPersistenceManager: SearchResultsPersistenceManager {
+    func updateResponse(_ response: ImageSearchResponse, forKey: String) {
+        
+    }
+    
+    func getStoredResult(forKey: String) -> ImageSearchResponse? {
+        return DummyRequestService.defaultResponse
     }
 }

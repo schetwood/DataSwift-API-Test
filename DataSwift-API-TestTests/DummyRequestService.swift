@@ -11,15 +11,15 @@ class DummyRequestService: RequestService {
         lastRequest = imageSearchRequest
     }
     
-    lazy var defaultResponse: ImageSearchResponse = {
-        let filepath = Bundle(for: type(of: self)).path(forResource: "example", ofType: "json")!
+    static let defaultResponse: ImageSearchResponse = {
+        let filepath = Bundle(for: DummyRequestService.self).path(forResource: "example", ofType: "json")!
         let data = try! Data(contentsOf: URL(fileURLWithPath: filepath))
         let response = try! JSONDecoder().decode(ImageSearchResponse.self, from: data)
         return response
     }()
     
     func callSuccess(response: ImageSearchResponse? = nil) {
-        let successResponse = response ?? defaultResponse
+        let successResponse = response ?? DummyRequestService.defaultResponse
         lastRequest?.successHandler(successResponse)
     }
 

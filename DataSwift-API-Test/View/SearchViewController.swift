@@ -14,7 +14,8 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel = ImageSearchViewModel(service: serviceFactory.getRequestService())
+        viewModel = ImageSearchViewModel(service: serviceFactory.getRequestService(),
+                                         persistenceManager: serviceFactory.getPersistenceManager())
         viewModel.delegate = self
         
         tableView.dataSource = self

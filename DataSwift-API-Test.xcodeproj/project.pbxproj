@@ -34,6 +34,7 @@
 		CF3ABD5A24B2158100E758D6 /* NoResultsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF3ABD5824B2158100E758D6 /* NoResultsTableViewCell.xib */; };
 		CF3ABD5C24B2172100E758D6 /* ServiceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3ABD5B24B2172100E758D6 /* ServiceFactory.swift */; };
 		CF3ABD5E24B21E8700E758D6 /* UITableViewCell+identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3ABD5D24B21E8700E758D6 /* UITableViewCell+identifiers.swift */; };
+		CF3ABD6024B232E700E758D6 /* SearchResultsPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3ABD5F24B232E700E758D6 /* SearchResultsPersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		CF3ABD5824B2158100E758D6 /* NoResultsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoResultsTableViewCell.xib; sourceTree = "<group>"; };
 		CF3ABD5B24B2172100E758D6 /* ServiceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceFactory.swift; sourceTree = "<group>"; };
 		CF3ABD5D24B21E8700E758D6 /* UITableViewCell+identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+identifiers.swift"; sourceTree = "<group>"; };
+		CF3ABD5F24B232E700E758D6 /* SearchResultsPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsPersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				CF3ABD3724B0D94100E758D6 /* ImageSearchRequest.swift */,
 				CF3ABD5124B201CF00E758D6 /* ImageService.swift */,
 				CF3ABD5B24B2172100E758D6 /* ServiceFactory.swift */,
+				CF3ABD5F24B232E700E758D6 /* SearchResultsPersistenceManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				CF3ABD4424B1D1D200E758D6 /* SearchResultViewModel.swift in Sources */,
 				CF3ABD3624B0D89300E758D6 /* ImageSearchViewModel.swift in Sources */,
 				CF3ABD2C24B0C36B00E758D6 /* Request.swift in Sources */,
+				CF3ABD6024B232E700E758D6 /* SearchResultsPersistenceManager.swift in Sources */,
 				CF3ABD5224B201CF00E758D6 /* ImageService.swift in Sources */,
 				CF3ABD5E24B21E8700E758D6 /* UITableViewCell+identifiers.swift in Sources */,
 				CF3ABD0A24B0C2E400E758D6 /* AppDelegate.swift in Sources */,

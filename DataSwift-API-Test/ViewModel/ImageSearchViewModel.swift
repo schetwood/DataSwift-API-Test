@@ -8,16 +8,17 @@ class ImageSearchViewModel {
     private let requestService: RequestService
     private var response: ImageSearchResponse? {
         guard let lastSearchTerm = mostRecentSearchTerm else { return nil }
-        return resultCache[lastSearchTerm]
+        return persistenceManager.getStoredResult(forKey: lastSearchTerm)
     }
     
     weak var delegate: ImageSearchViewModelDelegate?
     
     private var mostRecentSearchTerm: String?
-    private var resultCache: [String: ImageSearchResponse] = [:]
+    private let persistenceManager: SearchResultsPersistenceManager
     
-    init(service: RequestService) {
+    init(service: RequestService, persistenceManager: SearchResultsPersistenceManager) {
         self.requestService = service
+        self.persistenceManager = persistenceManager
     }
     
     func fetchSearchResults(forTerm searchTerm: String) {
@@ -26,7 +27,7 @@ class ImageSearchViewModel {
             query: searchTerm,
             responseHandler: { [weak self] response in
                 guard let self = self else { return }
-                self.resultCache[searchTerm] = response
+                self.persistenceManager.updateResponse(response, forKey: searchTerm)
                 self.delegate?.viewModel(self, didFinishSearchWithTerm: searchTerm)
             },
             errorHandler: { [weak self] error in

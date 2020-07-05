@@ -1,9 +1,9 @@
 import Foundation
 
-struct ImageSearchResponse: Decodable {
+struct ImageSearchResponse: Codable {
     let collection: Collection?
     
-    struct Collection: Decodable {
+    struct Collection: Codable {
         let href: String?
         let items: [Item]?
         let links: [CollectionLink]?
@@ -11,13 +11,13 @@ struct ImageSearchResponse: Decodable {
         let version: String?
     }
     
-    struct Item: Decodable {
+    struct Item: Codable {
         let data: [Datum]?
         let href: String?
         let links: [DataLink]?
     }
     
-    struct Datum: Decodable {
+    struct Datum: Codable {
         let center: String?
         let dateCreated: String?
         let description: String?
@@ -37,19 +37,19 @@ struct ImageSearchResponse: Decodable {
         }
     }
     
-    struct DataLink: Decodable {
+    struct DataLink: Codable {
         let href: String?
         let rel: String?
         let render: String?
     }
     
-    struct CollectionLink: Decodable {
+    struct CollectionLink: Codable {
         let href: String?
         let prompt: String?
         let rel: String?
     }
     
-    struct Metadata: Decodable {
+    struct Metadata: Codable {
         let totalHits: Int?
         
         private enum CodingKeys: String, CodingKey {
