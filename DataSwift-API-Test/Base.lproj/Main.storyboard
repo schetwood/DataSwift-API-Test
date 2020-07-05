@@ -1,24 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IpL-IY-9nR">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--NASA Image Library-->
+        <scene sceneID="yni-f2-zMs">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="41q-oO-Fva" customClass="SearchViewController" customModule="DataSwift_API_Test" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dID-dj-WTo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qu0-f8-jcZ">
+                                <rect key="frame" x="8" y="160" width="398" height="702"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ys1-PY-Qre">
+                                <rect key="frame" x="8" y="96" width="398" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bqt-cz-IkB">
+                                        <rect key="frame" x="0.0" y="0.0" width="326" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXp-di-deN">
+                                        <rect key="frame" x="334" y="0.0" width="64" height="56"/>
+                                        <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <state key="normal" title="Search"/>
+                                        <connections>
+                                            <action selector="tappedSearch:" destination="41q-oO-Fva" eventType="touchUpInside" id="4PO-cd-FFV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVv-Hi-WDW">
+                                <rect key="frame" x="0.0" y="160" width="414" height="736"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ve5-Mu-ehE">
+                                        <rect key="frame" x="188.5" y="349.5" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ve5-Mu-ehE" firstAttribute="centerY" secondItem="aVv-Hi-WDW" secondAttribute="centerY" id="27T-Gr-HoS"/>
+                                    <constraint firstItem="Ve5-Mu-ehE" firstAttribute="centerX" secondItem="aVv-Hi-WDW" secondAttribute="centerX" id="Hbf-Tp-o0M"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qu0-f8-jcZ" firstAttribute="centerX" secondItem="dID-dj-WTo" secondAttribute="centerX" id="3Yo-xm-jas"/>
+                            <constraint firstItem="Ys1-PY-Qre" firstAttribute="leading" secondItem="dID-dj-WTo" secondAttribute="leading" constant="8" id="Zws-zE-wKC"/>
+                            <constraint firstItem="aVv-Hi-WDW" firstAttribute="top" secondItem="qu0-f8-jcZ" secondAttribute="top" id="ccj-4f-yw2"/>
+                            <constraint firstItem="Ys1-PY-Qre" firstAttribute="top" secondItem="dW2-sE-RHB" secondAttribute="top" constant="8" id="gUx-2k-ccl"/>
+                            <constraint firstItem="aVv-Hi-WDW" firstAttribute="centerX" secondItem="dID-dj-WTo" secondAttribute="centerX" id="i48-is-3eb"/>
+                            <constraint firstItem="dW2-sE-RHB" firstAttribute="bottom" secondItem="qu0-f8-jcZ" secondAttribute="bottom" id="jeI-xi-E6q"/>
+                            <constraint firstItem="Ys1-PY-Qre" firstAttribute="centerX" secondItem="dID-dj-WTo" secondAttribute="centerX" id="mjB-N5-D13"/>
+                            <constraint firstItem="qu0-f8-jcZ" firstAttribute="leading" secondItem="dID-dj-WTo" secondAttribute="leading" constant="8" id="uFE-yJ-KJR"/>
+                            <constraint firstItem="qu0-f8-jcZ" firstAttribute="top" secondItem="Ys1-PY-Qre" secondAttribute="bottom" constant="8" id="uvg-t4-jho"/>
+                            <constraint firstAttribute="bottom" secondItem="aVv-Hi-WDW" secondAttribute="bottom" id="wZl-0B-OiT"/>
+                            <constraint firstItem="aVv-Hi-WDW" firstAttribute="leading" secondItem="dID-dj-WTo" secondAttribute="leading" id="y1r-Oh-wvz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dW2-sE-RHB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="NASA Image Library" id="VV9-Yr-idT"/>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="Ve5-Mu-ehE" id="ojI-Wf-4Ou"/>
+                        <outlet property="loadingView" destination="aVv-Hi-WDW" id="l4p-qf-0kX"/>
+                        <outlet property="searchBar" destination="bqt-cz-IkB" id="V0Y-N6-h9j"/>
+                        <outlet property="tableView" destination="qu0-f8-jcZ" id="nnH-rW-aAf"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pY1-UH-uHq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1884.057971014493" y="73.660714285714278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zji-Gr-sve">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IpL-IY-9nR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MOX-Nb-tKg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="41q-oO-Fva" kind="relationship" relationship="rootViewController" id="5VE-hB-KFC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wHK-hv-shE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973.91304347826099" y="73.660714285714278"/>
         </scene>
     </scenes>
 </document>

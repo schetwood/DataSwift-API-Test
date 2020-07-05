@@ -1,11 +1,3 @@
-//
-//  SceneDelegate.swift
-//  DataSwift-API-Test
-//
-//  Created by Simon Chetwood on 04/07/2020.
-//  Copyright © 2020 DataSwift. All rights reserved.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -18,6 +10,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        if let rootNav = window?.rootViewController as? UINavigationController,
+            let rootVC = rootNav.topViewController as? SearchViewController {
+            rootVC.serviceFactory = BaseServiceFactory()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
