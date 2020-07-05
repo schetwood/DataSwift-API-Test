@@ -14,8 +14,10 @@ class UserDefaultsPersistenceManager: SearchResultsPersistenceManager {
     }
     
     private var keyedResponses: [KeyedResponse]
+    private let maxResponseCount: Int
     
-    init() {
+    init(maxResponseCount: Int = 20) {
+        self.maxResponseCount = maxResponseCount
         let object = UserDefaults.standard.object(forKey: UserDefaultsPersistenceManager.objectKey)
         guard let data = object as? Data else {
             keyedResponses = []
@@ -36,6 +38,10 @@ class UserDefaultsPersistenceManager: SearchResultsPersistenceManager {
     func updateResponse(_ response: ImageSearchResponse, forKey key: String) {
         keyedResponses.removeAll { $0.key == key }
         keyedResponses.append(KeyedResponse(key: key, response: response))
+        if keyedResponses.count > maxResponseCount {
+            let numberToDrop = keyedResponses.count - maxResponseCount
+            keyedResponses.removeFirst(numberToDrop)
+        }
         
         DispatchQueue.global(qos: .background).async {
             do {
