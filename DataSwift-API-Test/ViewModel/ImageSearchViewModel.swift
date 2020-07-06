@@ -50,7 +50,7 @@ class ImageSearchViewModel {
         let title = item.data?.first?.title
         let description = item.data?.first?.description
         let keywords = item.data?.first?.keywords
-        let imageLink = item.links?.first?.href
+        let imageLink = item.links?.first(where: { $0.render == "image" })?.href
         
         return SearchResultViewModel(title: title,
                                      description: description,

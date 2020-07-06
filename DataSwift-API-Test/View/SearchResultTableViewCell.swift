@@ -1,11 +1,11 @@
 import UIKit
 
 class SearchResultTableViewCell: UITableViewCell {
-    @IBOutlet weak var resultImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var keywordsLabel: UILabel!
+    @IBOutlet private weak var resultImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var keywordsLabel: UILabel!
     
-    var imageTarget: String?
+    private var imageTarget: String?
     
     func setup(with viewModel: SearchResultViewModel, imageService: ImageService) {
         titleLabel.text = viewModel.title

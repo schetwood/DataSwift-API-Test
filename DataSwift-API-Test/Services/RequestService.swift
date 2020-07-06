@@ -9,7 +9,7 @@ class NASAWebService: RequestService {
         return URL(string: "https://images-api.nasa.gov/")!
     }
     
-    let webService: WebService
+    private let webService: WebService
     
     init(webService: WebService) {
         self.webService = webService

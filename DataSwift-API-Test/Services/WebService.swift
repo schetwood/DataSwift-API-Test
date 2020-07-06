@@ -7,7 +7,7 @@ protocol WebService {
 }
 
 class NativeWebService: WebService {
-    let timeoutInterval: Double
+    private let timeoutInterval: Double
     
     init(timeoutInterval: Double = 60.0) {
         self.timeoutInterval = timeoutInterval

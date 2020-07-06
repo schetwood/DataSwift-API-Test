@@ -1,9 +1,9 @@
 import Foundation
 
 class ImageSearchRequest: Request<ImageSearchResponse> {
-    let searchQuery: String
-    let responseHandler: (ImageSearchResponse) -> Void
-    let errorHandler: (Error?) -> Void
+    private let searchQuery: String
+    private let responseHandler: (ImageSearchResponse) -> Void
+    private let errorHandler: (Error?) -> Void
     
     override var targetPath: String {
         return "search"

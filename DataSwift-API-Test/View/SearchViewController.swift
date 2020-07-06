@@ -1,10 +1,10 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var loadingIndicator: UIActivityIndicatorView!
     
     var serviceFactory: ServiceFactory!
     
@@ -42,7 +42,7 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UITableViewDataSource {
-    var shouldShowNoResults: Bool {
+    private var shouldShowNoResults: Bool {
         return viewModel.countOfItems() == 0
     }
     

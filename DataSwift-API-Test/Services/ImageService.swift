@@ -7,8 +7,8 @@ protocol ImageService {
 }
 
 class WebImageService: ImageService {
-    let webService: WebService
-    let imageCache:NSCache<NSString, UIImage>
+    private let webService: WebService
+    private let imageCache:NSCache<NSString, UIImage>
     
     init(webService: WebService) {
         self.webService = webService
